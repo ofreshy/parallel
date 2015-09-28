@@ -15,3 +15,7 @@ The data events correspond to the service that generated them such as pixels / i
 
 python - compile protos 
 First you need to install protobuf with protoc and make sure that protobuf is installed. Make sure that all are version 3.x 
+When writing this, the google protobuf version version 3.0.0a4 did not link some of the extra google messages. Therefoe, two of the ones that are used (Any and Timestamp) are copied manually into google_messages directory. 
+
+When calling the protoc compiler, you will need to provide the path to the source files, and the path to the output files. For example, assuming that you are on the protobuf directory of this project, and you would like your output files to be in <dest>, the command will look like :
+protoc --python_out=<dest> --proto_path=protobuf protobuf/messages/event.proto 
